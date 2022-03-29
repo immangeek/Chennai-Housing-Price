@@ -1,11 +1,8 @@
 #Libraries
-from re import A
 import pandas as pd
 import streamlit as st
-import matplotlib.pyplot as plt
 import numpy as np
 import pickle
-from sklearn.preprocessing import LabelEncoder
 import streamlit as st
 import streamlit.components.v1 as components
 from babel.numbers import format_currency
@@ -30,7 +27,6 @@ components.html(html_string)
 #Dataset
 data = pd.read_csv("cleaned.csv")
 model = pickle.load(open('model_pkl','rb'))
-le = LabelEncoder()  
 
 app = Dash(__name__)
 server=app.server
