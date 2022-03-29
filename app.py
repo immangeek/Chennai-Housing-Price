@@ -6,7 +6,6 @@ import pickle
 import streamlit as st
 import streamlit.components.v1 as components
 from babel.numbers import format_currency
-from dash import Dash
 import gunicorn
 
 
@@ -28,8 +27,6 @@ def main():
     data = pd.read_csv("cleaned.csv")
     model = pickle.load(open('model_pkl','rb'))
 
-    app = Dash(__name__)
-    server=app.server
 
     st.markdown("<h1 style='text-align: center; color: grey;'>Chennai House Price</h1>", unsafe_allow_html=True)
 
