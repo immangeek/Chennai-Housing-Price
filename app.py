@@ -7,6 +7,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 from babel.numbers import format_currency
 import gunicorn
+from sklearn.model_selection import train_test_split
 
 
 
