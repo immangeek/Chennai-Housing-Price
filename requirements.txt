@@ -1,7 +1,9 @@
 Babel==2.9.1
-dash==2.2.0
 gunicorn==20.1.0
 numpy==1.22.2
 pandas==1.4.1
 streamlit==1.7.0
-click==8 
+click==8
+pickle
+pickle5
+scikit-learn
