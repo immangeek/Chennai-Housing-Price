@@ -11,7 +11,7 @@ import gunicorn
 
 
 
-def main()
+def main():
     st.set_page_config(page_title='House-Price-Finder', page_icon='resources/favicon.png', layout="centered", initial_sidebar_state="auto", menu_items=None)
 
     html_string = '''
@@ -42,19 +42,19 @@ def main()
 
     AREA = st.selectbox("Select your city ",data.AREA.unique())
     if AREA == 'Chrompet':
-    AREA = 2
+        AREA = 2
     elif AREA == 'Karapakkam':
-    AREA  = 4
+        AREA  = 4
     elif AREA == 'KK Nagar':
-    AREA = 3
+        AREA = 3
     elif AREA == 'Anna Nagar':
-    AREA = 1
+        AREA = 1
     elif AREA == 'Adyar':
-    AREA = 0
+        AREA = 0
     elif AREA == 'T Nagar':
-    AREA = 5
+        AREA = 5
     else:
-    AREA = 6
+        AREA = 6
 
 
 
