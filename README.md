@@ -4,7 +4,7 @@
 This project was done by real dataset.
 
 ## 🛠 APP
---->> click [House-Pricing-App](https://github.com/immangeek/IPL-Data-app)   <<--- Click
+--->> click [House-Pricing-App](http://chennai-houseprice.herokuapp.com/)   <<--- Click
 
 
 ## Author Bio
