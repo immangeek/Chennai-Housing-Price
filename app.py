@@ -40,18 +40,25 @@ def main():
 
     AREA = st.selectbox("Select your city ",data.AREA.unique())
     if AREA == 'Chrompet':
+        filtered=data[data['AREA']=='Chrompet']
         AREA = 2
     elif AREA == 'Karapakkam':
+        filtered=data[data['AREA']=='Karapakkam']
         AREA  = 4
     elif AREA == 'KK Nagar':
+        filtered=data[data['AREA']=='KK Nagar']
         AREA = 3
     elif AREA == 'Anna Nagar':
+        filtered=data[data['AREA']=='Anna Nagar']
         AREA = 1
     elif AREA == 'Adyar':
+        filtered=data[data['AREA']=='Adyar']
         AREA = 0
     elif AREA == 'T Nagar':
+        filtered=data[data['AREA']=='T Nagar']
         AREA = 5
-    else:
+    elif AREA == 'Velachery':
+        filtered=data[data['AREA']=='Velachery']
         AREA = 6
 
 
@@ -70,7 +77,7 @@ def main():
 
 
     #Coverting MZZONe categorical to numerical
-    MZZONE = st.selectbox("Which Zone you prefer ?",data.MZZONE.unique())
+    MZZONE = st.selectbox("Which Zone you prefer ?",filtered.MZZONE.unique())
     if MZZONE == 'A':
         MZZONE = 0
     elif MZZONE == 'RH':
