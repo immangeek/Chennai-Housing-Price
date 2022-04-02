@@ -19,8 +19,16 @@ def main():
     alert("நன்றி! / Thank You  / धन्यवाद - Project by Immanuel");
     </script>
     '''
-    components.html(html_string)
 
+    components.html(html_string)
+    rating_string = '''
+    <script type="text/javascript">function zforms_open_window(url, height, width){var leftPos = 0;var topPos = 0;if(screen){leftPos = (screen.width - width) / 2;topPos = (screen.height - height) / 2;window.open(url, null, 'width='+width+',height='+height+',left='+leftPos+',top='+topPos+', toolbar=0, location=0, status=1, scrollbars=1, resizable=1');}}</script><a href='https://forms.zohopublic.com/arulshirts/form/ProductReview/formperma/cPBQI8W_IAzwgeHo2oSeohvGYuSnYX2v1253WjxRX6o' title="Review" target='_blank' onclick="zforms_open_window(this.href, 648, 700); return false"> 👋Ratings Here </a>>
+    '''
+
+    
+
+    
+    
 
 
 
@@ -125,9 +133,13 @@ def main():
         st.write("*******************************",  low , 'to', high   ,"*******************************")
         st.balloons()
 
+    components.html(rating_string)
+
 
 if __name__=='__main__':
     main()
+
+
 
     
 
