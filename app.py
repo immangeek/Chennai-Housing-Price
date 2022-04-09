@@ -47,27 +47,27 @@ def main():
 
 
     AREA = st.selectbox("Select your city ",data.AREA.unique())
-    if AREA == 'Chrompet':
-        filtered=data[data['AREA']=='Chrompet']
-        AREA = 2
-    elif AREA == 'Karapakkam':
+    if AREA == 'Karapakkam':
         filtered=data[data['AREA']=='Karapakkam']
-        AREA  = 4
-    elif AREA == 'KK Nagar':
-        filtered=data[data['AREA']=='KK Nagar']
-        AREA = 3
-    elif AREA == 'Anna Nagar':
-        filtered=data[data['AREA']=='Anna Nagar']
         AREA = 1
     elif AREA == 'Adyar':
         filtered=data[data['AREA']=='Adyar']
-        AREA = 0
-    elif AREA == 'T Nagar':
-        filtered=data[data['AREA']=='T Nagar']
-        AREA = 5
+        AREA  = 2
+    elif AREA == 'Chrompet':
+        filtered=data[data['AREA']=='Chrompet']
+        AREA = 3
     elif AREA == 'Velachery':
         filtered=data[data['AREA']=='Velachery']
+        AREA = 4
+    elif AREA == 'KK Nagar':
+        filtered=data[data['AREA']=='KK Nagar']
+        AREA = 5
+    elif AREA == 'Anna Nagar':
+        filtered=data[data['AREA']=='Anna Nagar']
         AREA = 6
+    elif AREA == 'T Nagar':
+        filtered=data[data['AREA']=='T Nagar']
+        AREA = 7
 
 
 
@@ -79,25 +79,25 @@ def main():
 
     PARK_FACIL = st.radio("Do you want parking Facilty ?",data.PARK_FACIL.unique())
     if PARK_FACIL == 'Yes':
-        PARK_FACIL = 1
+        PARK_FACIL = 2
     else:
-        PARK_FACIL = 0
+        PARK_FACIL = 1
 
 
     #Coverting MZZONe categorical to numerical
     MZZONE = st.selectbox("Which Zone you prefer ?",filtered.MZZONE.unique())
     if MZZONE == 'A':
-        MZZONE = 0
-    elif MZZONE == 'RH':
-        MZZONE = 3
-    elif MZZONE == 'RL':
-        MZZONE = 4
-    elif MZZONE == 'I':
-        MZZONE = 2
-    elif MZZONE == 'C':
         MZZONE = 1
-    else:
+    elif MZZONE == 'C':
+        MZZONE = 2
+    elif MZZONE == 'I':
+        MZZONE = 3
+    elif MZZONE == 'RH':
+        MZZONE = 4
+    elif MZZONE == 'RL':
         MZZONE = 5
+    else:
+        MZZONE = 6
 
     BUILDTYPE = st.radio("What kind of purpose you need  ?",data.BUILDTYPE.unique())
 
@@ -106,23 +106,33 @@ def main():
     elif BUILDTYPE == 'Others':
         BUILDTYPE = 2
     else:
-        BUILDTYPE = 0
+        BUILDTYPE = 3
+
+    STREET = st.radio("What Street you prefer  ?",data.STREET.unique())
+
+    if STREET == 'No Access':
+        STREET = 1
+    elif STREET == 'Paved':
+        STREET = 2
+    else:
+        STREET = 3
 
 
 
 
 
-    input = pd.DataFrame([[INT_SQFT,BUILDTYPE,MZZONE,AREA,N_BEDROOM,PARK_FACIL]],columns=['INT_SQFT','BUILDTYPE','MZZONE','AREA','N_BEDROOM','PARK_FACIL'],index=['index'])
+
+    input = pd.DataFrame([[INT_SQFT,BUILDTYPE,MZZONE,AREA,N_BEDROOM,PARK_FACIL,STREET]],columns=['INT_SQFT','BUILDTYPE','MZZONE','AREA','N_BEDROOM','PARK_FACIL','STREET'],index=['index'])
                         
                         
     #st.dataframe(input)
 
     valu = model.predict(input)
-    low=int(valu-(valu*0.02))
+    low=int(valu-(valu*0.01))
     low = format_currency(low, 'INR', locale='en_IN')
 
 
-    high=int(valu+(valu*0.02))
+    high=int(valu+(valu*0.01))
     high = format_currency(high, 'INR', locale='en_IN')
 
     #print('Estimated value is:',low , 'to', high)
@@ -132,6 +142,7 @@ def main():
         st.markdown("<h1 style='text-align: center; color: grey;'>Estimated House Price</h1>", unsafe_allow_html=True)
         st.write("*******************************",  low , 'to', high   ,"*******************************")
         st.balloons()
+
 
     components.html(rating_string)
 
